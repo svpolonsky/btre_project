@@ -15,40 +15,52 @@
     </div>
   </section>
   
-
-
+  <section id="listings" class="py-5">
     <div class="container">
-      <div class="row pt-3 pb-3">
-        <div class="col-md-4">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{% static 'img/income_increase.jpg' %}" alt="Card image cap">
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static 'img/income_increase.jpg' %}" alt="">
             <div class="card-body">
-              <h5 class="card-title">Увеличение дохода</h5>
-              <p class="card-text">Сдача в краткосрочную аренду квартир на 50% выгодней долгосрочной.</p>
-              <!-- a href="#" class="btn btn-primary">Подробнее</a> -->
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Увеличение дохода</h4>
+                <p>
+                  Сдача в краткосрочную аренду квартир на 50% выгодней долгосрочной.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{% static 'img/house_safety.jpg' %}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Сохранность жилья</h5>
-            <p class="card-text">Ваша квартира в основном используется как место для ночлега, что влечет ее меньший износ.</p>
-          </div>
-          </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{% static 'img/short_term.png' %}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Краткосрочные обязательства</h5>
-            <p class="card-text">Изменились обстоятельства? При краткосрочной аренде Вам не нужно долго ждать завершения аренды.</p>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static 'img/house_safety.jpg' %}" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Сохранность жилья</h4>
+                <p>
+                  Ваша квартира в основном используется как место для ночлега, что влечет ее меньший износ.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static 'img/short_term.png' %}" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Краткосрочные обязательства</h4>
+                <p>
+                  Изменились обстоятельства? При краткосрочной аренде Вам не нужно долго ждать завершения аренды.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>          
       </div>
     </div>
+  </section>
+
 
   <!-- Roadblocks -->
   <section id="showcase-inner" class="py-5 text-white">
@@ -63,38 +75,51 @@
   </div>
   </section>
 
-  
-  <div class="container">
-    <div class="row pt-3 pb-3">
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{% static 'img/reception.jpg' %}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Встреча гостей</h5>
-            <p class="card-text">Ресепшен в отеле работает круглосуточно, а вы?</p>
+  <section id="listings" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static 'img/reception.jpg' %}" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Встреча гостей</h4>
+                <p>
+                  Ресепшен в отеле работает круглосуточно, а вы?
+                </p>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static 'img/cleaning.jpg' %}" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Уборка квартиры</h4>
+                <p>
+                  Вы готовы убирать квартиру за гостями или проконтролировать работу уборщицы?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static 'img/repair.jpg' %}" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Мелкий ремонт</h4>
+                <p>
+                  Трудно разобраться во всем, а вызов мастера обойдется дорого.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>          
       </div>
-      <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{% static 'img/cleaning.jpg' %}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Уборка квартиры</h5>
-          <p class="card-text">Вы готовы убирать квартиру за гостями или проконтролировать работу уборщицы?</p>
-        </div>
-        </div>
     </div>
-    <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{% static 'img/repair.jpg' %}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Мелкий ремонт</h5>
-          <p class="card-text">Трудно разобраться во всем, а вызов мастера обойдется дорого.</p>
-        </div>
-      </div>
-    </div>
-    </div>
-  </div>
+  </section>
 
 
 
@@ -111,38 +136,51 @@
   </section>
 
 
-  
-  <div class="container">
-    <div class="row pt-3  pb-3">
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{% static 'img/long_distance.jpg' %}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Удаленность</h5>
-            <p class="card-text">Вы живете в другом городе или стране.</p>
+  <section id="listings" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static 'img/long_distance.jpg' %}" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Удаленность</h4>
+                <p>
+                  Вы живете в другом городе или стране.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static 'img/being_busy.jpg' %}" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Занятость</h4>
+                <p>
+                  Ваше время и мысли заняты другим.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static 'img/being_investor.jpg' %}" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Инвестор</h4>
+                <p>
+                  Вы хотите повысить доходность своей недвижимости.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>          
       </div>
-      <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{% static 'img/being_busy.jpg' %}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Занятость</h5>
-          <p class="card-text">Ваше время и мысли заняты другим.</p>
-        </div>
-        </div>
     </div>
-    <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{% static 'img/being_investor.jpg' %}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Инвестор</h5>
-          <p class="card-text">Вы хотите повысить доходность своей недвижимости.</p>
-        </div>
-      </div>
-    </div>
-    </div>
-  </div>
+  </section>
 
 
   <!-- Our Offer -->
@@ -159,45 +197,64 @@
   </div>
   </section>
 
-
   
-  <div class="container">
-    <div class="row pt-3 pb-3">
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{% static 'img/transparent_money.jpg' %}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Прозрачность</h5>
-            <p class="card-text">Вы видите все расходы и доходы. Мы работаем за процент от вашей прибыли, это – лучший мотиватор нашей добросовестности. 
-              </p>
+  <section id="listings" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static 'img/transparent_money.jpg' %}" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Прозрачность</h4>
+                <p>
+                  Вы видите все расходы и доходы. Мы работаем за процент от вашей прибыли, это – лучший мотиватор нашей добросовестности.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static 'img/inspection.jpg' %}" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Контроль</h4>
+                <p>
+                  В любой момент между гостями вы можете лично проверить состояние квартиры.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static 'img/recommendation.jpg' %}" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Рекомендации</h4>
+                <p>
+                  Принимая решение работать с нами, вы сможете спросить мнение наших клиентов.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>          
       </div>
-      <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{% static 'img/inspection.jpg' %}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Контроль</h5>
-          <p class="card-text">В любой момент между гостями вы можете лично проверить состояние квартиры.</p>
-        </div>
-        </div>
     </div>
-    <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{% static 'img/recommendation.jpg' %}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Рекомендации</h5>
-          <p class="card-text">Принимая решение работать с нами, вы сможете спросить мнение наших клиентов.</p>
-        </div>
-      </div>
-    </div>
-    </div>
-  </div>
-
-  <section id="offer" class="bg-dark text-white text-center">
-    <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Оставить Заявку</button>
   </section>
 
+  <section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h3 class="display-4">Заинтересованы заработать с нами?</h3>
+          <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Оставить Заявку</button>      
+        </div>
+    </div>
+  </div>
+  </section>
+ 
 
   <!-- Inquiry Modal -->
   <div class="modal fade" id="inquiryModal" role="dialog">
@@ -247,93 +304,6 @@
   <!--  include 'partials/_showcase.html'  -->
   <!-- Alerts -->
   {% include 'partials/_alerts.html'%}
-
-  <!-- Listings -->
-  <section id="listings" class="py-5">
-    <div class="container">
-      <h3 class="text-center mb-3">Последние добавления</h3>
-      <div class="row">
-        {% if listings %}
-          {% for listing in listings %}
-            <div class="col-md-6 col-lg-4 mb-4">
-              <div class="card listing-preview">
-                <img class="card-img-top" src="{{listing.photo_main.url}}" alt="">
-                <div class="card-img-overlay">
-                  <h2>
-                    <span class="badge badge-secondary text-white">${{listing.price | intcomma}}</span>
-                  </h2>
-                </div>
-                <div class="card-body">
-                  <div class="listing-heading text-center">
-                    <h4 class="text-primary">{{ listing.title }}</h4>
-                    <p>
-                      <i class="fas fa-map-marker text-secondary"></i> {{ listing.city }} {{ listing.state }}, {{ listing.zipcode }}</p>
-                  </div>
-                  <hr>
-                  <div class="row py-2 text-secondary">
-                    <div class="col-6">
-                      <i class="fas fa-th-large"></i> Sqft: {{ listing.sqft }}</div>
-                    <div class="col-6">
-                      <i class="fas fa-car"></i> Garage: {{ listing.garage }}</div>
-                  </div>
-                  <div class="row py-2 text-secondary">
-                    <div class="col-6">
-                      <i class="fas fa-bed"></i> Bedrooms: {{ listing.bedrooms }}</div>
-                    <div class="col-6">
-                      <i class="fas fa-bath"></i> Bathrooms: {{ listing.bathrooms }}</div>
-                  </div>
-                  <hr>
-                  <div class="row py-2 text-secondary">
-                    <div class="col-6">
-                      <i class="fas fa-user"></i> {{ listing.realtor }}</div>
-                  </div>
-                  <div class="row text-secondary pb-2">
-                    <div class="col-6">
-                      <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
-                  </div>
-                  <hr>
-                  <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
-                </div>
-              </div>
-            </div>          
-          {% endfor %}
-        {%else%}
-          <div class="col-md-12">
-            <p>No Listings Available</p>
-          </div>
-        {% endif %}
-
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="py-5 bg-secondary text-white">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-md-4">
-          <i class="fas fa-comment fa-4x mr-4"></i>
-          <hr>
-          <h3>Consulting Services</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
-            hic dignissimos ratione ea quae.</p>
-        </div>
-        <div class="col-md-4">
-          <i class="fas fa-home fa-4x mr-4"></i>
-          <hr>
-          <h3>Propery Management</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
-            hic dignissimos ratione ea quae.</p>
-        </div>
-        <div class="col-md-4">
-          <i class="fas fa-suitcase fa-4x mr-4"></i>
-          <hr>
-          <h3>Renting & Selling</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
-            hic dignissimos ratione ea quae.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
 
 {% endblock %}
