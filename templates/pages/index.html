@@ -1,76 +1,257 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% load humanize %}
 {% block title %} | Welcome{% endblock %}
 {% block content %}
 
-  <!-- Showcase -->
-  <section id="showcase">
-    <div class="container text-center">
-      <div class="home-search p-5">
-        <div class="overlay p-5">
-          <h1 class="display-4 mb-4">
-            Property Searching Just Got So Easy
-          </h1>
-          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
-            voluptatum tempore! Consectetur, id commodi!</p>
-          <div class="search">
-            <form action="{% url 'search' %}">
-              <!-- Form Row 1 -->
-              <div class="form-row">
-                <div class="col-md-4 mb-3">
-                  <label class="sr-only">Keywords</label>
-                  <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)">
-                </div>
-
-                <div class="col-md-4 mb-3">
-                  <label class="sr-only">City</label>
-                  <input type="text" name="city" class="form-control" placeholder="City">
-                </div>
-
-                <div class="col-md-4 mb-3">
-                  <label class="sr-only">State</label>
-                  <select name="state" class="form-control">
-                    <option selected="true" disabled="disabled">State (All)</option>
-                    {% for key,value in state_choices.items %}
-                      <option value="{{ key }}">{{ value }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-              </div>
-              <!-- Form Row 2 -->
-              <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <label class="sr-only">Bedrooms</label>
-                  <select name="bedrooms" class="form-control">
-                    <option selected="true" disabled="disabled">Bedrooms (All)</option>
-                    {% for key,value in bedroom_choices.items %}
-                    <option value="{{ key }}">{{ value }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <select name="price" class="form-control" id="type">
-                    <option selected="true" disabled="disabled">Max Price (Any)</option>
-                    {% for key,value in price_choices.items %}
-                    <option value="{{ key }}">{{ value }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-              </div>
-              <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
-            </form>
-          </div>
+  <section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h3 class="display-4">Сдача жилья в краткосрочную аренду имеет много преимуществ!</h3>
         </div>
       </div>
     </div>
   </section>
+  
+
+
+    <div class="container">
+      <div class="row pt-3 pb-3">
+        <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{% static 'img/income_increase.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Увеличение дохода</h5>
+              <p class="card-text">Сдача в краткосрочную аренду квартир на 50% выгодней долгосрочной.</p>
+              <!-- a href="#" class="btn btn-primary">Подробнее</a> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{% static 'img/house_safety.jpg' %}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Сохранность жилья</h5>
+            <p class="card-text">Ваша квартира в основном используется как место для ночлега, что влечет ее меньший износ.</p>
+          </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{% static 'img/short_term.png' %}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Краткосрочные обязательства</h5>
+            <p class="card-text">Изменились обстоятельства? При краткосрочной аренде Вам не нужно долго ждать завершения аренды.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+  <!-- Roadblocks -->
+  <section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+    <h3 class="display-4">Препятствия на пути</h3>
+    <h4>При всех преимуществах, краткосрочная аренда требует много внимания. 
+      Фактически, это управление миниатюрным отелем. Это – профессиональная деятельность! </h4>
+    </div>
+    </div>
+  </div>
+  </section>
+
+  
+  <div class="container">
+    <div class="row pt-3 pb-3">
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{% static 'img/reception.jpg' %}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Встреча гостей</h5>
+            <p class="card-text">Ресепшен в отеле работает круглосуточно, а вы?</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{% static 'img/cleaning.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Уборка квартиры</h5>
+          <p class="card-text">Вы готовы убирать квартиру за гостями или проконтролировать работу уборщицы?</p>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{% static 'img/repair.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Мелкий ремонт</h5>
+          <p class="card-text">Трудно разобраться во всем, а вызов мастера обойдется дорого.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+
+  <!-- Are you sure you can/want do this? -->
+  <section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h3 class="display-4">Преодолевать самому?</h3>
+          <h4>Есть ли у вас возможность и желание управляться самостоятельно? </h4>
+        </div>
+    </div>
+  </div>
+  </section>
+
+
+  
+  <div class="container">
+    <div class="row pt-3  pb-3">
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{% static 'img/long_distance.jpg' %}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Удаленность</h5>
+            <p class="card-text">Вы живете в другом городе или стране.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{% static 'img/being_busy.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Занятость</h5>
+          <p class="card-text">Ваше время и мысли заняты другим.</p>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{% static 'img/being_investor.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Инвестор</h5>
+          <p class="card-text">Вы хотите повысить доходность своей недвижимости.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+  <!-- Our Offer -->
+  <section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h3 class="display-4">Наше предложение</h3>
+          <h4>Доверьте нам управление краткосрочной арендой вашей квартиры. 
+            Мы стали профессионалами, управляя своими собственными квартирами и создали свою управляющую компанию. 
+            Теперь  мы готовы помочь и вам!</h4>
+        </div>
+    </div>
+  </div>
+  </section>
+
+
+  
+  <div class="container">
+    <div class="row pt-3 pb-3">
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{% static 'img/transparent_money.jpg' %}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Прозрачность</h5>
+            <p class="card-text">Вы видите все расходы и доходы. Мы работаем за процент от вашей прибыли, это – лучший мотиватор нашей добросовестности. 
+              </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{% static 'img/inspection.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Контроль</h5>
+          <p class="card-text">В любой момент между гостями вы можете лично проверить состояние квартиры.</p>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{% static 'img/recommendation.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Рекомендации</h5>
+          <p class="card-text">Принимая решение работать с нами, вы сможете спросить мнение наших клиентов.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <section id="offer" class="bg-dark text-white text-center">
+    <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Оставить Заявку</button>
+  </section>
+
+
+  <!-- Inquiry Modal -->
+  <div class="modal fade" id="inquiryModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inquiryModalLabel">Оставить Заявку</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'contact_owner' %}" method="POST">
+            {% csrf_token %}
+            {% if user.is_authenticated %}
+              <input type="hidden" name="user_id" value="{{ user.id }}">
+            {% else %}
+              <input type="hidden" name="user_id" value="0">
+            {% endif %}
+            
+            <div class="form-group">
+              <label for="name" class="col-form-label">Ваше Имя:</label>
+              <input type="text" name="name" class="form-control" {% if user.is_authenticated %} value="{{user.first_name}} {{user.last_name}}" {% endif %} required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="col-form-label">Ваш Email:</label>
+              <input type="email" name="email" class="form-control" {% if user.is_authenticated %} value="{{user.email}}" {% endif %} required>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="col-form-label">Ваш телефон:</label>
+              <input type="text" name="phone" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="message" class="col-form-label">Ваше Сообщение:</label>
+              <textarea name="message" class="form-control"></textarea>
+            </div>
+            <hr>
+            <input type="submit" value="Send" class="btn btn-block btn-secondary">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Showcase: I don't need search for now -->
+  <!--  include 'partials/_showcase.html'  -->
   <!-- Alerts -->
   {% include 'partials/_alerts.html'%}
+
   <!-- Listings -->
   <section id="listings" class="py-5">
     <div class="container">
-      <h3 class="text-center mb-3">Latest Listings</h3>
+      <h3 class="text-center mb-3">Последние добавления</h3>
       <div class="row">
         {% if listings %}
           {% for listing in listings %}
