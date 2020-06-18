@@ -95,20 +95,20 @@
             <div class="col-md-6">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-money-bill-alt"></i> Asking Price:
-                  <span class="float-right">${{ listing.price | intcomma }}</span>
+                  <i class="fas fa-money-bill-alt"></i> Доходность:
+                  <span class="float-right">{{ listing.price | intcomma }} руб/мес</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-bed"></i> Bedrooms:
+                  <i class="fas fa-bed"></i> Спален:
                   <span class="float-right">{{ listing.bedrooms }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-bath"></i> Bathrooms:
+                  <i class="fas fa-bath"></i> Ванных:
                   <span class="float-right">{{ listing.bathrooms }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-car"></i> Garage:
-                  <span class="float-right">{{ listing.garage }}
+                  <i class="fas fa-car"></i> Парковка:
+                  <span class="float-right">{{ listing.parking }}
                   </span>
                 </li>
               </ul>
@@ -116,20 +116,20 @@
             <div class="col-md-6">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-th-large"></i> Square Feet:
-                  <span class="float-right">{{ listing.sqft }}</span>
+                  <i class="fas fa-th-large"></i> Площадь:
+                  <span class="float-right">{{ listing.m2_total }} кв.м</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-square"></i> Lot Size:
-                  <span class="float-right">{{ listing.lot_size }} Acres
+                  <i class="fas  fa-building"></i> Этаж:
+                  <span class="float-right">{{ listing.floor }}
                   </span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-calendar"></i> Listing Date:
+                  <i class="fas fa-calendar"></i> Управляем с
                   <span class="float-right">{{ listing.list_date }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-bed"></i> Realtor:
+                  <i class="fas fa-user"></i> Управляющий:
                   <span class="float-right">{{ listing.realtor }}
                   </span>
                 </li>
@@ -150,11 +150,11 @@
           <div class="card mb-3">
             <img class="card-img-top" src="{{ listing.realtor.photo.url }}" alt="">
             <div class="card-body">
-              <h5 class="card-title">Property Realtor</h5>
+              <h5 class="card-title">Управляющий</h5>
               <h6 class="text-secondary">{{ listing.realtor }}</h6>
             </div>
           </div>
-          <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
+          <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Спросить</button>
         </div>
       </div>
     </div>
