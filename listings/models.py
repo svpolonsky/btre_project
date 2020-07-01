@@ -1,9 +1,23 @@
 from django.db import models
 from datetime import datetime
 from realtors.models import Realtor
+from owners.models import Owner
 
 class Listing(models.Model):
-    realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
+    STATUS_CHOICES = (
+        ('Active', 'Active'),
+        ('Inactive', 'Inactive'),
+    )
+    status=models.CharField(max_length=10, choices=STATUS_CHOICES, default='Inactive')
+    realtor = models.ForeignKey(
+        Realtor, 
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True)
+    # primary
+    owner = models.ForeignKey(Owner, on_delete=models.CASCADE)
+    # other
+    #owner = models.ManyToManyField(Owner)
     title = models.CharField(max_length=200)
     address = models.CharField(max_length=200,default='')
     city = models.CharField(max_length=100)

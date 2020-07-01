@@ -23,6 +23,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'listings.apps.ListingsConfig',
+    'owners.apps.OwnersConfig',
     'realtors.apps.RealtorsConfig',
     'accounts.apps.AccountsConfig',
     'contacts.apps.ContactsConfig',
@@ -137,4 +138,5 @@ MESSAGE_TAGS = {
 try:
     from .local_settings import *
 except ImportError:
+    print('no local settings...')
     pass
