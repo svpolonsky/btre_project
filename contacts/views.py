@@ -61,9 +61,18 @@ def contact_owner(request):
             messages.warning(request, 'Cannot email confirmation')
         return redirect('index')
 
-""" import smtplib
+import smtplib
 
 def sendEmail():
+
+    #import smtplib
+
+    mailserver = smtplib.SMTP('smtp.office365.com',587)
+    mailserver.ehlo()
+    mailserver.starttls()
+    mailserver.login('stas@youmoscow.com', '8gYbAz44yZD')
+    mailserver.sendmail('stas@youmoscow.com', 'spolonsky@icloud.com','python email')
+    mailserver.quit()
 
     server = smtplib.SMTP('smtp.office365.com', 587)
     server.starttls()
@@ -75,4 +84,3 @@ def sendEmail():
         print('An error occurred when trying to send an email')
 
     server.quit()
- """

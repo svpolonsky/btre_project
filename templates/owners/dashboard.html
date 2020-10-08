@@ -41,19 +41,23 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Property</th>
-                <th></th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">P&L Report</th>
               </tr>
             </thead>
             <tbody>
               {% for unit in units %}
-               <tr>
-                <td>{{ unit.id }}</td>
-                <td>{{ unit.title }}</td>
-                <td>
-                  <a class="btn btn-light" href="{% url 'listing' unit.id %}">View Listing</a>
-                </td>
-              </tr>
+                <tr>
+                  <td>{{ unit.id }}</td>
+                  <td>{{ unit.title }}</td>
+                  <td>
+                    <a class="btn btn-light" href="{% url 'listing' unit.id %}">View</a>
+                  </td>
+                  <td>
+                    <a class="btn btn-light" href="{% url 'report_unit' unit.id %}">Download</a>
+                  </td>
+                </tr>
               {% endfor %}
             </tbody>
           </table>

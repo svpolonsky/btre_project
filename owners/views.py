@@ -6,6 +6,7 @@ from records.models import Expense, Revenue
 
 def dashboard(request):
     # user -> owner -> units -> records
+    # user to owner
     owner=get_object_or_404(Owner, user=request.user)
     # owner to properties
     units = Unit.objects.filter(owner=owner)
