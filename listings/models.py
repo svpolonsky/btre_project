@@ -8,6 +8,10 @@ class Listing(models.Model):
         ('Active', 'Active'),
         ('Inactive', 'Inactive'),
     )
+    COUNTRY_CHOICES = (
+        ('USA', 'USA'),
+        ('Россия', 'Россия'),
+    )
     status=models.CharField(max_length=10, choices=STATUS_CHOICES, default='Inactive')
     realtor = models.ForeignKey(
         Realtor, 
@@ -23,6 +27,7 @@ class Listing(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     zipcode = models.CharField(max_length=20)
+    country=models.CharField(max_length=100, choices=COUNTRY_CHOICES, default='Россия')
     description = models.TextField(blank=True)
     price = models.IntegerField()
     bedrooms = models.IntegerField()

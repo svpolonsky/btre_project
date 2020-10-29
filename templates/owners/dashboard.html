@@ -1,16 +1,9 @@
 {% extends 'base.html'%}
+{% load static %}
+{% load render_table from django_tables2 %}
 {% block title %} | Owner Dashboard{% endblock %}
 {% block content%}
-  <section id="showcase-inner" class="py-5 text-white">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-md-12">
-          <h1 class="display-4">Owner Dashboard</h1>
-          <p class="lead">Your managed properties</p>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- Breadcrumb -->
   <section id="bc" class="mt-3">
@@ -21,7 +14,7 @@
             <a href="{% url 'index' %}">
               <i class="fas fa-home"></i> Home</a>
           </li>
-          <li class="breadcrumb-item active"> Owner Dashboard</li>
+          <li class="breadcrumb-item active"> Owner </li>
         </ol>
       </nav>
     </div>
@@ -30,118 +23,119 @@
     <!-- Alerts-->
     {% include 'partials/_alerts.html' %}
 
-  <section id="dashboard" class="py-4">
+  <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
-      <div class="row">
+      <div class="row text-center">
         <div class="col-md-12">
-          <h2>Welcome {{owner.name}}</h2>
+          <h3 class="display-4">Summary</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+   
+
+  <section id="reports" class="py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
           {% if units %}
-          <p>Here are the properties we manage for you</p>
-          <table class="table">
-            <thead>
+          <table class="table  table-hover">
+            <thead class="thead-light">
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
-                <th scope="col">P&L Report</th>
-              </tr>
+                <td>&nbsp;</td>
+                <th scope="colgroup" colspan="3">Last 30 days</th>
+                <th scope="colgroup" colspan="3">Last 12 months</th>
+                </tr>
+                <tr>
+                <th scope="col">Property</th>
+                <th scope="col">Revenue</th>
+                <th scope="col">Expense</th>
+                <th scope="col">Profit</th>
+                <th scope="col">Revenue</th>
+                <th scope="col">Expense</th>
+                <th scope="col">Profit</th>
+                </tr>
             </thead>
             <tbody>
-              {% for unit in units %}
+              {% for s in summary %}
                 <tr>
-                  <td>{{ unit.id }}</td>
-                  <td>{{ unit.title }}</td>
-                  <td>
-                    <a class="btn btn-light" href="{% url 'listing' unit.id %}">View</a>
-                  </td>
-                  <td>
-                    <a class="btn btn-light" href="{% url 'report_unit' unit.id %}">Download</a>
-                  </td>
+                  <td>{{ s.name }}</td>
+                  <td>{{ s.revenue30d}}</td>
+                  <td>{{ s.expense30d}}</td>
+                  <td>{{ s.profit30d}}</td>
+                  <td>{{ s.revenue12m}}</td>
+                  <td>{{ s.expense12m}}</td>
+                  <td>{{ s.profit12m}}</td>
                 </tr>
               {% endfor %}
             </tbody>
           </table>
+
           {% else %}
           <p>Strange, you do not have managed properties</p>
           {% endif %}
 
-          <!-- Expenses-->
-          
-          {% if expenses %}
-          <p>Expense report</p>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Property</th>
-                <th scope="col">Date</th>
-                <th scope="col">Category</th>
-                <th scope="col">Vendor</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Note</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for expense in expenses %}
-               <tr>
-                <td>{{ expense.id }}</td>
-                <td>{{ expense.unit }}</td>
-                <td>{{ expense.date }}</td>
-                <td>{{ expense.category }}</td>
-                <td>{{ expense.vendor }}</td>
-                <td>{{ expense.amount }}</td>
-                <td>{{ expense.note }}</td>
-                <td>
-                  <a class="btn btn-light" href="{% url 'listing' expense.id %}">View Property</a>
-                </td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-          {% else %}
-          <p>No expenses</p>
-          {% endif %}
 
-          <!-- Revenue-->
-          {% if expenses %}
-          <p>Revenue report</p>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Property</th>
-                <th scope="col">Date</th>
-                <th scope="col">Category</th>
-                <th scope="col">Guest</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Note</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for revenue in revenues %}
-               <tr>
-                <td>{{ revenue.id }}</td>
-                <td>{{ revenue.unit }}</td>
-                <td>{{ revenue.date }}</td>
-                <td>{{ revenue.category }}</td>
-                <td>{{ revenue.guest }}</td>
-                <td>{{ revenue.amount }}</td>
-                <td>{{ revenue.note }}</td>
-                <td>
-                  <a class="btn btn-light" href="{% url 'listing' revenue.id %}">View Details</a>
-                </td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-          {% else %}
-          <p>No revenues</p>
-          {% endif %}
+                    
+
 
         </div>
       </div>
     </div>
   </section>
+
+  <section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h3 class="display-4">Detailed Reports</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="reports" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <!-- https://icon-library.com/icon/accounting-ledger-icon-10.html -->
+            <img class="card-img-top" src="{% static 'img/transaction-history.png' %}" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Account Ledger</h4>
+                <p>List all income and expense transactions: filter and sort the way you want</p>
+                <a href="{% url 'owner_transactions' period=30 %}" class="btn btn-primary">Last 30 days</a>
+                <a href="{% url 'owner_transactions' period=365 %}" class="btn btn-primary">Last 12 months</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static 'img/analytics.png' %}" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Operating Statement</h4>
+                <p>
+                  Income and expense totals for your portfolio, separated by month   
+                </p>
+                <a href="{% url 'owner_statement' country='USA' %}" class="btn btn-primary">Portfolio USA</a>
+                <a href="{% url 'owner_statement' country='Россия' %}" class="btn btn-primary">Portfolio Россия</a>
+              </div>
+            </div>
+          </div>
+        </div>
+              
+      </div>
+    </div>
+  </section>
+
+
+  <div>Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
   {% endblock %}
