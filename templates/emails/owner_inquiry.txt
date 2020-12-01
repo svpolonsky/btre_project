@@ -1,0 +1,10 @@
+Important notification from YouMoscow.com
+
+Hello admin,
+Please answer an inquiry from a perspective ownner.
+Owner information:
+Name: {{ name }}
+Email: {{email}}
+Phone: {{phone}},
+Message:
+{{message}}

@@ -33,11 +33,17 @@ def dashboard(request):
             "expense12m": Expense.objects.filter(unit=u).filter(date__gte=last_year).aggregate(Sum('amount')).get('amount__sum', 0.00),
             "profit12m":0.0
         } 
-    for u in units]
+        for u in units]
     # compute profits
     for d in data:
-        d["profit30d"]=d["revenue30d"]-d["expense30d"]
-        d["profit12m"]=d["revenue12m"]-d["expense12m"]
+        try:
+            d["profit30d"]=d["revenue30d"]-d["expense30d"]
+        except:
+            d["profit30d"]=None
+        try:
+            d["profit12m"]=d["revenue12m"]-d["expense12m"]
+        except:
+            d["profit12m"]=None
 
 
     expenses = Expense.objects.filter(unit__in=units)
