@@ -3,7 +3,6 @@ from .models import Owner
 from listings.models import Listing as Unit
 from records.models import Expense, Revenue
 from records.filters import ExpenseFilter
-#import django_tables2 as tables
 from django.db.models import Sum
 from datetime import datetime, timedelta
 from .tables import LedgerTable
@@ -69,23 +68,19 @@ def transactions(request,period):
     # user -> owner -> units -> records
     # user to owner
     owner=get_object_or_404(Owner, user=request.user)
-    # owner to properties
+    # owner to units
     units = Unit.objects.filter(owner=owner)
     duration = datetime.today() - timedelta(days=period)
 
- 
-
-    fields=['date','amount','category__category','unit__title']
+    fields=['date','amount','category__category','unit__title','note']
     transactions = list(Expense.objects.filter(unit__in=units).filter(date__gte=duration).values(*fields))
     for t in transactions:
         t['amount']=-t['amount']
     transactions.extend(
         list(Revenue.objects.filter(unit__in=units).filter(date__gte=duration).values(*fields))
     )
-    #print(transactions)
     context={
         'ledger': RequestConfig(request).configure(LedgerTable(transactions))
-
     }
     return render(request,'owners/transactions.html', context)
 

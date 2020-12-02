@@ -6,3 +6,4 @@ class LedgerTable(tables.Table):
     amount = tables.Column()
     category__category = tables.Column(verbose_name='Category')
     unit__title = tables.Column(verbose_name='Property')
+    note = tables.Column()
