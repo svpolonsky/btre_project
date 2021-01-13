@@ -248,13 +248,14 @@
       <div class="row text-center">
         <div class="col-md-12">
           <h3 class="display-4">Заинтересованы заработать с нами?</h3>
-          <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Оставить Заявку</button>      
+          <a href="{% url 'request_from_prospect' %}" class="btn btn-light mb-4">Оставить Заявку</a>
+        
         </div>
     </div>
   </div>
   </section>
  
-
+  
   <!-- Inquiry Modal -->
   <div class="modal fade" id="inquiryModal" role="dialog">
     <div class="modal-dialog">
@@ -265,6 +266,7 @@
             <span>&times;</span>
           </button>
         </div>
+        
         <div class="modal-body">
           <form action="{% url 'contact_owner' %}" method="POST">
             {% csrf_token %}

@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django_filters',
     'django_tables2',
+    'crispy_forms',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -144,4 +146,15 @@ except ImportError:
     print('no local settings...')
     pass
 
+
 DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap4.html"
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# django-simple-captcha
+
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'
+CAPTCHA_IMAGE_SIZE = (150, 50)
+CAPTCHA_FONT_SIZE = (20)
+CAPTCHA_BACKGROUND_COLOR = '#cccccc'
+CAPTCHA_FOREGROUND_COLOR = '#001100'
+CAPTCHA_LENGTH = 6

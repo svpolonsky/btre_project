@@ -4,6 +4,8 @@ from django.conf import settings
 from django.core.mail import send_mail, EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from .models import Contact, ContactOwner
+from .forms import ContactForm
+
 
 def contact(request):
     if request.method == 'POST':
@@ -34,6 +36,47 @@ def contact(request):
         )
         messages.success(request, 'You request has been submitted, a realtor will get back to you soon.')
         return redirect('/listings/'+listing_id)
+
+
+
+
+def request_from_prospect(request):
+    if request.POST:
+        form = ContactForm(request.POST)
+
+        # Validate the form: the captcha field will automatically
+        # check the input
+        if form.is_valid():
+            # human = True
+            r = form.save(commit=False)
+            # assume the user is not registered 
+            r.user_id = 0
+            r.save()
+            # inform admin by email about the inquiry
+            try:
+                subject='YouMoscow Inquiry'
+                context= ({"name": r.name, "email":r.email, "phone":r.phone,"message":r.message})
+                text_content = render_to_string('owner_inquiry.txt', context, request=request)
+                html_content = render_to_string('owner_inquiry.html', context, request=request)
+                emailOfSender= settings.EMAIL_HOST_USER
+                emailOfRecipient = 'spolonsky@icloud.com' 
+                #I used EmailMultiAlternatives because I wanted to send both text and html
+                emailMessage = EmailMultiAlternatives(
+                    subject=subject, 
+                    body=text_content, 
+                    from_email=emailOfSender, 
+                    to=[emailOfRecipient,], 
+                    reply_to=[emailOfSender,])
+                emailMessage.attach_alternative(html_content, "text/html")
+                emailMessage.send(fail_silently=False)
+                messages.success(request, 'You request has been submitted, a realtor will get back to you soon.')
+            except:
+                messages.warning(request, 'Cannot email confirmation')
+            return redirect('index')
+    else:
+        form = ContactForm()
+
+    return render(request, 'contacts/request_from_prospect.html', {'form': form})
 
 
 def contact_owner(request):

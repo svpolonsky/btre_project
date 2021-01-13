@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load humanize %}
+{% block title %} Request from prospect{% endblock %}
+{% block content %}
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index'%}">Home</a>
+          </li>
+          <li class="breadcrumb-item active">Оставить заявку</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Alerts -->
+  {% include 'partials/_alerts.html' %}
+
+
+  <!-- Request Form -->
+  <section id="listing" class="py-4">
+    
+    <div class="container col-3">
+        
+        <form action="{% url 'request_from_prospect' %}" method="post">
+            {% csrf_token %}
+            {{ form | crispy}}
+            <input type="submit" value="Submit">
+        </form>        
+                
+        
+    </div>
+  </section>
+
+  
+
+ 
+{% endblock %}
