@@ -34,12 +34,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'django.contrib.humanize',
     'django_filters',
     'django_tables2',
     'crispy_forms',
     'captcha',
 ]
+
+# sitemaps requirement
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -140,13 +145,6 @@ MESSAGE_TAGS = {
 } 
 
 
-try:
-    from .local_settings import *
-except ImportError:
-    print('no local settings...')
-    pass
-
-
 DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap4.html"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -158,3 +156,14 @@ CAPTCHA_FONT_SIZE = (20)
 CAPTCHA_BACKGROUND_COLOR = '#cccccc'
 CAPTCHA_FOREGROUND_COLOR = '#001100'
 CAPTCHA_LENGTH = 6
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    print('no local settings...')
+    pass
+
+
+from datetime import datetime
+LAST_MODIFIED=datetime.strptime('2021-01-12 20:00:00', "%Y-%m-%d %H:%M:%S") 
