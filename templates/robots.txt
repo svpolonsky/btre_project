@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: /accounts/
+Disallow: /admin/
+Sitemap: https://youmoscow.com/sitemap.xml
+
