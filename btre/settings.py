@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'django.contrib.humanize',
+    'import_export',
     'django_filters',
     'django_tables2',
     'crispy_forms',
     'captcha',
+    
 ]
 
 # sitemaps requirement
