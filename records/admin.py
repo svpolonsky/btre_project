@@ -1,7 +1,9 @@
 from django.contrib import admin
 from .models import ExpenseCategory, Expense, RevenueCategory, Revenue
-from import_export import resources
-from import_export.admin import ExportMixin
+from import_export import fields, resources
+from import_export.admin import ImportExportMixin
+from import_export.widgets import ForeignKeyWidget
+from listings.models import Listing
 
 # Categories
 
@@ -24,21 +26,26 @@ class RevenueCategoryAdmin(admin.ModelAdmin):
 admin.site.register(RevenueCategory, RevenueCategoryAdmin)
 
 
-# django-import-export
+# django-import-export resources
 
 class ExpenseResource(resources.ModelResource):
+    unit = fields.Field(column_name='unit',attribute='unit',widget=ForeignKeyWidget(Listing, 'title'))
+    category = fields.Field(column_name='category',attribute='category',widget=ForeignKeyWidget(ExpenseCategory, 'category'))
     class Meta:
         model = Expense
-        fields = ('unit__title','date','category__category','vendor','amount','note')
+        fields = ('id','unit','date','category','vendor','amount','note')
 
 class RevenueResource(resources.ModelResource):
+    unit = fields.Field(column_name='unit',attribute='unit',widget=ForeignKeyWidget(Listing, 'title'))
+    category = fields.Field(column_name='category',attribute='category',widget=ForeignKeyWidget(RevenueCategory, 'category'))
     class Meta:
         model = Revenue
-        fields = ('unit__title','date','category__category','guest','amount','note')
+        fields = ('id','unit','date','category','guest','amount','note')
 
+# integrate with admin
 
-class ExpenseAdmin(ExportMixin, admin.ModelAdmin):
-    resource_class = ExpenseResource # enable export button
+class ExpenseAdmin(ImportExportMixin, admin.ModelAdmin):
+    resource_class = ExpenseResource # enable export & import buttons
     list_display = ('id','unit','date', 'category', 'vendor', 'amount', 'note')
     list_display_links =('id',)
     list_filter=('unit','category')
@@ -47,8 +54,8 @@ class ExpenseAdmin(ExportMixin, admin.ModelAdmin):
 
 admin.site.register(Expense, ExpenseAdmin)
 
-class RevenueAdmin(ExportMixin, admin.ModelAdmin):
-    resource_class = RevenueResource # enable export button
+class RevenueAdmin(ImportExportMixin, admin.ModelAdmin):
+    resource_class = RevenueResource # enable export & import button
     list_display = ('id','unit','date', 'category', 'guest', 'amount', 'note')
     list_display_links =('id',)
     list_filter=('unit','category')
