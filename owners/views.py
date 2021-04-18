@@ -106,14 +106,12 @@ def statement_helper(qs):
     trow[0] = sum(trow[1:]) # YTD
     return trow,ctrows
 
-def statement(request,country):
+def statement(request,country,year):
     # user -> owner -> units -> records
     # user to owner
     owner=get_object_or_404(Owner, user=request.user)
     # owner to properties
     units = Unit.objects.filter(owner=owner,country=country)
-    year = 2020
- 
     # Income
     inc,cinc=statement_helper(Revenue.objects.filter(unit__in=units).filter(date__year=year))
 
