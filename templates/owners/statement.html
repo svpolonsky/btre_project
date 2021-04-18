@@ -95,7 +95,7 @@
           <tr class="table-dark">
             <td><span>Net Income</span></td>
             {% for n in nets %}
-              {% if forloop.first or n > 0 %}
+              {% if forloop.first or n > 0 or n < 0 %}
                 <td>{{n}}</td>
               {% else %}
                 <td></td>
