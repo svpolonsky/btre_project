@@ -107,7 +107,10 @@ def statement_helper(qs):
     return trow,ctrows
 
 def statement(request,country,year):
-    # user -> owner -> units -> records
+    #=================================
+    # Owner's Operating Statement
+    #=================================
+    # what records wo we include? user -> owner -> units -> records
     # user to owner
     owner=get_object_or_404(Owner, user=request.user)
     # owner to properties
@@ -117,8 +120,8 @@ def statement(request,country,year):
 
     fields=['date','amount','category__category','unit__title']
 
-    # Expense
-    exp,cexp=statement_helper(Expense.objects.filter(unit__in=units).filter(date__year=year))
+    # Expense, excluding investments
+    exp,cexp=statement_helper(Expense.objects.filter(unit__in=units).filter(date__year=year).filter(type=Expense.OPERATIONS))
     
     # Net Operating Income
     noi = [i-e for i, e in zip(inc, exp)]
