@@ -10,9 +10,22 @@ class ExpenseCategory(models.Model):
         verbose_name_plural = "Expense Categories"
     
 class Expense(models.Model):
+    # accounting differentiates between types of expenses: operations and investments
+    OPERATIONS = 'O'
+    INVESTMENTS = 'I'
+    EXPENSE_TYPE = [
+        (OPERATIONS, 'Operations'),
+        (INVESTMENTS, 'Investments'),
+    ]
+    # model fileds
     unit = models.ForeignKey(Listing, on_delete=models.CASCADE)
     date=models.DateTimeField(default=datetime.now)
     category = models.ForeignKey(ExpenseCategory, on_delete=models.CASCADE)
+    type = models.CharField(
+        max_length=1,
+        choices=EXPENSE_TYPE,
+        default=OPERATIONS,
+    ) 
     vendor = models.CharField(max_length=200, blank=True)
     amount = models.DecimalField(max_digits=11, decimal_places=2)
     note = models.CharField(max_length=200, blank=True)

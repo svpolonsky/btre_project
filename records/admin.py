@@ -46,10 +46,10 @@ class RevenueResource(resources.ModelResource):
 
 class ExpenseAdmin(ImportExportMixin, admin.ModelAdmin):
     resource_class = ExpenseResource # enable export & import buttons
-    list_display = ('id','unit','date', 'category', 'vendor', 'amount', 'note')
+    list_display = ('id','unit','date', 'category', 'type', 'vendor', 'amount', 'note')
     list_display_links =('id',)
-    list_filter=('unit','category')
-    search_fields=('unit','category')
+    list_filter=('unit','category','type')
+    search_fields=('unit','category','type')
     list_per_page=25
 
 admin.site.register(Expense, ExpenseAdmin)
