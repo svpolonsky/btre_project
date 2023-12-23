@@ -1,0 +1,14 @@
+{
+    "name": "Real-estate",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cmake-tools",
+				"ms-python.python"
+			]
+		}
+	}
+}
